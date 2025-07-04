@@ -1,0 +1,196 @@
+.fancy-register-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0f172a;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.background-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  opacity: 0.85;
+  z-index: 0;
+}
+
+.fancy-card {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 90%;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 40px 30px;
+  background: rgba(17, 24, 39, 0.85);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  text-align: center;
+  color: #e2e8f0;
+  animation: fadeIn 0.8s ease;
+}
+
+.fancy-card h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  color: #f8fafc;
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 26px;
+}
+
+.error-container {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeSlideDown 0.5s ease;
+}
+
+.input-error {
+  position: relative;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.08));
+  border-left: 4px solid #ef4444;
+  border-radius: 12px;
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: left;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 10px rgba(239,68,68,0.2);
+  animation: fadeInError 0.5s ease;
+}
+
+.input-error::before {
+  content: '⚠️ ';
+  margin-right: 4px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: #f1f5f9;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+.input-group input.invalid {
+  border-color: #ef4444;
+  box-shadow: 0 1px 6px rgba(239,68,68,0.3);
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 0.75rem;
+  color: #38bdf8;
+}
+
+.strength-veryweak { color: #ef4444; }
+.strength-weak { color: #f97316; }
+.strength-medium { color: #eab308; }
+.strength-strong { color: #22c55e; }
+
+.gradient-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  color: #f8fafc;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.4s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.gradient-btn:hover {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.gradient-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.alt-link {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.alt-link span {
+  text-decoration: underline;
+}
+
+.alt-link:hover {
+  color: #38bdf8;
+}
+
+.feedback {
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  animation: fadeIn 0.5s ease;
+}
+
+.feedback.success {
+  background-color: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.25);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInError {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

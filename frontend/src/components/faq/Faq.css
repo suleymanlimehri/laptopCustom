@@ -1,0 +1,132 @@
+.faq-page {
+    margin-top: 50px;
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e0f2fe;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #60a5fa;
+  text-shadow: 0 0 10px #3b82f6;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(17,24,39,0.85);
+  margin-bottom: 20px;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  box-shadow: 0 0 10px rgba(59,130,246,0.2);
+  transition: background 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  background: rgba(30, 41, 59, 0.95);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  color: #60a5fa;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  margin-top: 10px;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-answer p {
+  margin: 0;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.faq-item:hover .faq-question h3 {
+  color: #facc15;
+  text-shadow: 0 0 6px #facc15;
+}
+
+
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  .faq-item {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .faq-question h3 {
+    font-size: 1.1rem;
+  }
+
+  .faq-toggle {
+    font-size: 1.4rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-title {
+    font-size: 1.8rem;
+    margin-bottom: 28px;
+  }
+
+  .faq-item {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+
+  .faq-toggle {
+    font-size: 1.3rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+  }
+}
