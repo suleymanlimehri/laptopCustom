@@ -669,3 +669,182 @@
     height: 120px;
   }
 }
+/* ------------------------------
+   LIGHT MODE OVERRIDES
+------------------------------- */
+[data-theme="light"] .admin-layout {
+  background-color: #f4f4f4;
+  color: #111;
+}
+
+[data-theme="light"] .admin-sidebar {
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+}
+
+[data-theme="light"] .sidebar-logo {
+  color: #2563eb;
+}
+
+[data-theme="light"] .sidebar-nav button {
+  color: #333;
+  border-color: transparent;
+}
+
+[data-theme="light"] .sidebar-nav button:hover,
+[data-theme="light"] .sidebar-nav button.active {
+  background: #2563eb22;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+[data-theme="light"] .language-switcher {
+  border-top: 1px solid #ddd;
+}
+
+[data-theme="light"] .language-icon {
+  color: #2563eb;
+}
+
+[data-theme="light"] .language-buttons button {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+[data-theme="light"] .language-buttons button.active,
+[data-theme="light"] .language-buttons button:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+[data-theme="light"] .admin-main {
+  background-color: #f9f9f9;
+}
+
+[data-theme="light"] .admin-section h2 {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+[data-theme="light"] .admin-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #111;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+[data-theme="light"] .admin-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] .admin-card h3 {
+  color: #2563eb;
+}
+
+[data-theme="light"] .admin-card p {
+  color: #333;
+}
+
+[data-theme="light"] .user-total {
+  color: #2563eb;
+}
+
+[data-theme="light"] .order-item {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+[data-theme="light"] .order-item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] .order-item .item-name {
+  color: #2563eb;
+}
+
+[data-theme="light"] .item-qty-price {
+  color: #555;
+}
+
+[data-theme="light"] .cancel-order-button {
+  background: #2563eb;
+  color: #fff;
+}
+
+[data-theme="light"] .cancel-order-button:hover {
+  background: #1d4ed8;
+}
+
+[data-theme="light"] .product-controls input,
+[data-theme="light"] .product-controls select {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+[data-theme="light"] .product-controls input:focus,
+[data-theme="light"] .product-controls select:focus {
+  border-color: #2563eb;
+}
+
+[data-theme="light"] .product-controls button {
+  background: #2563eb;
+  color: #fff;
+}
+
+[data-theme="light"] .product-controls button:hover {
+  background: #1d4ed8;
+}
+
+[data-theme="light"] .category-button {
+  background: #fff;
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+[data-theme="light"] .category-button:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+[data-theme="light"] .modal-content {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+}
+
+[data-theme="light"] .modal-content h3 {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+[data-theme="light"] .modal-content input,
+[data-theme="light"] .modal-content textarea,
+[data-theme="light"] .modal-content select {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+[data-theme="light"] .modal-content input:focus,
+[data-theme="light"] .modal-content textarea:focus,
+[data-theme="light"] .modal-content select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px #2563eb55;
+}
+
+[data-theme="light"] .modal-buttons button {
+  background: linear-gradient(45deg, #2563eb, #3b82f6);
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="light"] .modal-buttons button:hover {
+  background: linear-gradient(45deg, #1d4ed8, #2563eb);
+}
+
+[data-theme="light"] .no-results {
+  color: #666;
+}

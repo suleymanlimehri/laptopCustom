@@ -1,13 +1,15 @@
 import React from 'react';
 import './Footer.css';
 import { useLanguage } from '../../context/languageContext';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Footer() {
   const { language, languageData } = useLanguage();
+  const { theme } = useTheme();
   const t = languageData[language].footer;
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${theme}`}>
       <div className="footer-container">
         <div className="footer-brand">
           <h2>💻 {t.brandTitle}</h2>
@@ -18,7 +20,7 @@ export default function Footer() {
           <h4>{t.quickLinks}</h4>
           <ul>
             <li><a href="/catalog">{t.links.catalog}</a></li>
-            <li><a href="/cart">{t.links.cart}</a></li>
+            <li><a href="/about">{t.links.about}</a></li>
             <li><a href="/faq">{t.links.faq}</a></li>
             <li><a href="/contact">{t.links.contact}</a></li>
           </ul>

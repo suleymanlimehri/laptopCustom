@@ -111,41 +111,48 @@ export const getProfile = async (req, res) => {
 export const googleLogin = async (req, res) => {
   try {
     const { token } = req.body;
+
+    // Verify with Google (pseudo-code, use your actual verification)
     const ticket = await client.verifyIdToken({
       idToken: token,
-      audience: process.env.GOOGLE_CLIENT_ID,  // GOOGLE_CLIENT_ID `.env`-dən alınıb
+      audience: process.env.GOOGLE_CLIENT_ID
     });
-
     const payload = ticket.getPayload();
-    const { sub, email, name, picture } = payload;
+    const email = payload.email;
+    const username = payload.name;
 
     let user = await User.findOne({ email });
-    if (!user) {
+
+    if (user) {
+      // ✅ Check block status
+      if (user.isBlocked) {
+        return res.status(403).json({ msg: 'This account is blocked. Please contact support.' });
+      }
+    } else {
+      // New registration
       user = new User({
-        googleId: sub,
         email,
-        username: name,
-        profileImage: picture
+        username,
+        googleId: payload.sub
       });
       await user.save();
     }
 
-    const jwtToken = jwt.sign(
+    // Issue JWT
+    const tokenRes = jwt.sign(
       { id: user._id, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
     res.json({
-      token: jwtToken,
       id: user._id,
       username: user.username,
-      email: user.email,
       role: user.role,
-      profileImage: user.profileImage,
+      token: tokenRes
     });
   } catch (err) {
     console.error('Google Login Error:', err);
-    res.status(401).json({ msg: 'Invalid Google Token' });
+    res.status(500).json({ msg: 'Google login failed' });
   }
 };

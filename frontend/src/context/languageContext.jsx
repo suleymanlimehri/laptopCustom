@@ -202,12 +202,36 @@ export const languageData = {
       quickLinks: 'Quick Links',
       links: {
         catalog: 'Catalog',
-        cart: 'Cart',
+        about: 'About Us',
         faq: 'FAQ',
         contact: 'Contact'
       },
       connect: 'Connect with us',
       copyright: 'Laptop Configurator Pro. All Rights Reserved.'
+    },
+    wishlistPage: {
+      title: "My Wishlist ❤️",
+      empty: "No items in your wishlist yet.",
+      offerError: "Failed to send offer. Please try again!",
+      headers: {
+        product: "Product",
+        price: "Price",
+        stock: "Stock Status",
+        action: "Action",
+        remove: "Remove"
+      },
+      makeOffer: "Make an Offer",
+      offerFor: "Make an Offer for",
+      sendOffer: "Send Offer",
+      cancel: "Cancel",
+      enterYourPrice: "Enter your offer price below:",
+      pricePlaceholder: "Your offer price",
+      offerSent: "Your offer was sent",
+      enterValidOffer: "Please enter a valid offer!",
+      inStock: "✔ In Stock",
+      outOfStock: "✖ Out of Stock",
+      addToCart: "Add to Cart",
+      contactUs: "Contact Us"
     },
     adminPage: {
       loading: "Loading...",
@@ -240,6 +264,8 @@ export const languageData = {
         saveChanges: "Save Changes",
         viewLogs: "View Logs"
       },
+      startConfiguration: "Start Configuration",
+      addToCompare: "Add to Compare",
       logsTitle: "System Logs",
       noLogs: "No logs found",
       modals: {
@@ -453,6 +479,30 @@ export const languageData = {
         }
       ]
     },
+    wishlistPage: {
+      title: "Arzu Siyahım ❤️",
+      offerError: "Təklif göndərilə bilmədi. Yenidən cəhd edin!",
+      empty: "Arzu siyahınızda hələ məhsul yoxdur.",
+      headers: {
+        product: "Məhsul",
+        price: "Qiymət",
+        stock: "Anbar Statusu",
+        action: "Əməliyyat",
+        remove: "Sil"
+      },
+      makeOffer: "Təklif göndər",
+      offerFor: "Təklif göndər:",
+      sendOffer: "Göndər",
+      cancel: "Ləğv et",
+      enterYourPrice: "Təklif etdiyiniz qiyməti daxil edin:",
+      pricePlaceholder: "Təklif qiyməti",
+      offerSent: "Təklifiniz göndərildi",
+      enterValidOffer: "Zəhmət olmasa düzgün təklif daxil edin!",
+      inStock: "✔ Anbarda var",
+      outOfStock: "✖ Anbarda yoxdur",
+      addToCart: "Səbətə əlavə et",
+      contactUs: "Bizimlə əlaqə"
+    },
     contactPage: {
       title: "💬 Əlaqə və Dəstək",
       subtitle: "7/24 onlaynıq. Bizə mesaj göndərin, tezliklə cavab verəcəyik!",
@@ -624,6 +674,30 @@ export const languageData = {
       loading: 'Загрузка...',
       notFound: 'Товар не найден.',
       integre: "Интегрированный"
+    },
+    wishlistPage: {
+      title: "Мой список желаний ❤️",
+      offerError: "Не удалось отправить предложение. Попробуйте снова!",
+      empty: "В вашем списке желаний пока нет товаров.",
+      headers: {
+        product: "Товар",
+        price: "Цена",
+        stock: "Наличие",
+        action: "Действие",
+        remove: "Удалить"
+      },
+      makeOffer: "Сделать предложение",
+      offerFor: "Сделать предложение для",
+      sendOffer: "Отправить",
+      cancel: "Отмена",
+      enterYourPrice: "Введите вашу цену ниже:",
+      pricePlaceholder: "Ваша цена",
+      offerSent: "Ваше предложение отправлено",
+      enterValidOffer: "Пожалуйста, введите корректную цену!",
+      inStock: "✔ В наличии",
+      outOfStock: "✖ Нет в наличии",
+      addToCart: "Добавить в корзину",
+      contactUs: "Связаться с нами"
     },
     productConfigure: {
       loading: 'Загрузка...',

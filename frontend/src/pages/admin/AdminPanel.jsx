@@ -3,7 +3,6 @@ import axios from '../../axiosInstance';
 import { useLanguage } from '../../context/languageContext';
 import './AdminPanel.css';
 import { useNavigate } from 'react-router-dom';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -12,36 +11,26 @@ export default function AdminPanel() {
   const { language, languageData, changeLanguage } = useLanguage();
   const t = languageData[language].adminPage;
   const navigate = useNavigate();
-
   const [activeTab, setActiveTab] = useState('products');
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState(localStorage.getItem('userRole') || '');
-
   const [showModal, setShowModal] = useState(false);
   const [newProduct, setNewProduct] = useState({ name: '', description: '', price: '', image: '', category: '' });
   const [editingProduct, setEditingProduct] = useState(null);
-
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('');
-
   const [roleChangingUser, setRoleChangingUser] = useState(null);
   const [newRole, setNewRole] = useState('user');
-
-
   const [categories, setCategories] = useState([]);
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('');
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState('');
-
-
   const [showDeleteCategoryModal, setShowDeleteCategoryModal] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState('');
-
   const token = localStorage.getItem('token');
-
   useEffect(() => {
     if (token) {
       axios.get('/api/auth/profile', {
@@ -61,7 +50,6 @@ export default function AdminPanel() {
       navigate('/access-denied');
     }
   }, [token, navigate]);
-
   useEffect(() => {
     setLoading(true);
     if (activeTab === 'users') fetchUsers();
@@ -79,7 +67,6 @@ export default function AdminPanel() {
       console.error('Error fetching categories:', err);
     }
   };
-
   const fetchUsers = async () => {
     try {
       const res = await axios.get('/api/auth/all', { headers: { Authorization: `Bearer ${token}` } });
@@ -90,7 +77,7 @@ export default function AdminPanel() {
       setLoading(false);
     }
   };
-
+  
   const fetchProducts = async () => {
     try {
       const res = await axios.get('/api/products');
@@ -111,7 +98,6 @@ export default function AdminPanel() {
       console.error('Error blocking/unblocking user:', err);
     }
   };
-
   const fetchOrders = async () => {
     try {
       const res = await axios.get('/api/orders', { headers: { Authorization: `Bearer ${token}` } });
@@ -136,10 +122,7 @@ export default function AdminPanel() {
       alert('Error creating category: ' + (err?.response?.data?.error ?? err.message));
     }
   };
-
-
   const handleDeleteCategory = async (id) => {
-
     try {
       await axios.delete(`/api/categories/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
@@ -150,7 +133,6 @@ export default function AdminPanel() {
       alert('Error deleting category');
     }
   };
-
   const activeOrders = orders.filter(o => o.status !== 'cancelled');
   const groupedOrders = activeOrders.reduce((acc, order) => {
     if (!order.user) return acc;
@@ -170,7 +152,6 @@ export default function AdminPanel() {
     if (!text) return '';
     return text.length > limit ? text.slice(0, limit) + '...' : text;
   };
-
   const handleCreateProduct = async () => {
     try {
       await axios.post('/api/products/create', newProduct);
@@ -181,7 +162,6 @@ export default function AdminPanel() {
       console.error('Error creating product:', err);
     }
   };
-
   const handleSaveEditProduct = async () => {
     try {
       await axios.put(`/api/products/${editingProduct._id}`, editingProduct);
@@ -192,7 +172,6 @@ export default function AdminPanel() {
       console.error('Error editing product:', err);
     }
   };
-
   const handleDeleteProduct = async (id) => {
     try {
       await axios.delete(`/api/products/${id}`);
@@ -201,7 +180,6 @@ export default function AdminPanel() {
       console.error(err);
     }
   };
-
   const handleCancelAllOrdersForUser = async (ordersForUser) => {
     try {
       for (const o of ordersForUser) {
@@ -226,7 +204,6 @@ export default function AdminPanel() {
       console.error('Error changing role:', err);
     }
   };
-
   const filteredProducts = products
     .filter(p =>
       p.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -289,10 +266,8 @@ export default function AdminPanel() {
           </div>
         </div>
       </aside>
-
       <main className="admin-main">
         {loading && <p className="loading-text">{t.loading}</p>}
-
         {!loading && activeTab === 'orders' && (
           <section className="admin-section">
             <h2>{t.ordersTitle}</h2>
@@ -341,7 +316,6 @@ export default function AdminPanel() {
             )}
           </section>
         )}
-
         {!loading && activeTab === 'users' && (
           <section className="admin-section">
             <h2>{t.usersTitle}</h2>
@@ -638,8 +612,6 @@ export default function AdminPanel() {
           </div>
         </div>
       )}
-
-
     </div>
   );
 }

@@ -37,7 +37,7 @@ export default function Login() {
       localStorage.setItem('userId', res.data.id);
       window.location.href = res.data.role === 'admin' ? '/admin' : '/catalog';
     } catch (err) {
-      setMessage('Google login failed');
+      setMessage(err.response?.data?.msg || 'Google login failed');
       console.error('Google login error:', err);
     }
   };
@@ -52,6 +52,7 @@ export default function Login() {
             type="email"
             placeholder="Email address"
             value={email}
+            autoComplete='email'
             onChange={e => setEmail(e.target.value)}
             required
           />

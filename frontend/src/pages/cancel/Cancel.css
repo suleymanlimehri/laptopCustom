@@ -99,6 +99,50 @@
   animation: vibrate 0.4s ease;
 }
 
+/* LIGHT MODE OVERRIDES FOR CANCEL PAGE */
+
+.cancel-page.light {
+  background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+  color: #1f2937;
+}
+
+.cancel-page.light .cancel-card {
+  background: #ffffff;
+  border: 1px solid #fca5a5;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: none;
+}
+
+.cancel-page.light .cancel-title {
+  color: #dc2626;
+}
+
+.cancel-page.light .cancel-message {
+  color: #b91c1c;
+}
+
+.cancel-page.light .cancel-quote {
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+  color: #374151;
+}
+
+.cancel-page.light .retry-button,
+.cancel-page.light .back-button {
+  background: linear-gradient(90deg, #f87171, #fb923c);
+  color: #1f2937;
+}
+
+.cancel-page.light .retry-button:hover,
+.cancel-page.light .back-button:hover {
+  background: linear-gradient(90deg, #fb923c, #f87171);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.cancel-page.light .cancel-quote {
+  animation: none;
+}
 
 @media (max-width: 600px) {
   .cancel-card {

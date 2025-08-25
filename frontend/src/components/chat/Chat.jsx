@@ -10,6 +10,7 @@ export default function ChatModal({ onClose }) {
       text: '👋 Salam! Mən OpenAI Chatbotam. Laptoplar haqqında suallarınızı verə bilərsiniz.'
     }
   ]);
+  
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

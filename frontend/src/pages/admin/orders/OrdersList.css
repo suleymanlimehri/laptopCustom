@@ -91,3 +91,71 @@
   color: #f87171;
   font-weight: bold;
 }
+/* LIGHT MODE OVERRIDES FOR ORDERSLIST PAGE */
+
+.orderslist-container.light {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.orderslist-container.light .orderslist-title {
+  color: #2563eb;
+}
+
+.orderslist-container.light .orderslist-empty {
+  color: #6b7280;
+}
+
+.orderslist-container.light .order-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.orderslist-container.light .order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.orderslist-container.light .order-header {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.orderslist-container.light .order-date {
+  color: #6b7280;
+}
+
+.orderslist-container.light .badge {
+  color: #ffffff;
+}
+
+.orderslist-container.light .badge.pending {
+  background-color: #facc15;
+  color: #000;
+}
+
+.orderslist-container.light .badge.paid {
+  background-color: #22c55e;
+}
+
+.orderslist-container.light .badge.cancelled {
+  background-color: #ef4444;
+}
+
+.orderslist-container.light .cancelled {
+  background-color: #fee2e2;
+  opacity: 1;
+}
+
+.orderslist-container.light .order-body p {
+  color: #374151;
+}
+
+.orderslist-container.light .order-items ul {
+  color: #374151;
+}
+
+.orderslist-container.light .error {
+  color: #dc2626;
+}

@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../../context/languageContext';
 import './Success.css';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Success() {
   const navigate = useNavigate();
   const [orderNumber, setOrderNumber] = useState('');
   const [countdown, setCountdown] = useState(10);
+   const { theme } = useTheme();
 
   const { language, languageData } = useLanguage();
   const t = languageData[language].successPage;
@@ -29,7 +31,7 @@ export default function Success() {
   }, [navigate]);
 
   return (
-    <div className="success-container">
+    <div className={`success-container ${theme}`}>
       <div className="success-card">
         <h1 className="success-title">{t.title}</h1>
         <p className="success-message">{t.message}</p>

@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { toast } from 'react-hot-toast';
+import { Switch } from '@mui/material';
 import { useLanguage } from '../../context/languageContext';
+import { useTheme } from '../../context/ThemeContext';
 import './Catalog.css';
 import ChatButton from '../../components/chat/ChatButton';
+import { useWishlist } from '../../context/WishlistContext';
+import { FavoriteBorder, Favorite } from '@mui/icons-material';
 
 export default function Catalog() {
   const [products, setProducts] = useState([]);
@@ -17,9 +21,11 @@ export default function Catalog() {
   const [brands, setBrands] = useState([]);
   const [maxPrice, setMaxPrice] = useState(3000);
   const [sortOption, setSortOption] = useState('none');
+  const [onlyInStock, setOnlyInStock] = useState(false);
 
+  const { toggleWishlist, isInWishlist } = useWishlist();
+  const { theme } = useTheme();
   const navigate = useNavigate();
-
   const { language, languageData } = useLanguage();
   const t = languageData[language].catalogPage;
 
@@ -29,10 +35,8 @@ export default function Catalog() {
         const res = await axios.get('http://localhost:5000/api/products');
         setProducts(res.data);
         setFiltered(res.data);
-
         const brandList = [...new Set(res.data.map((p) => p.brand))].filter(Boolean);
         setBrands(brandList);
-
         setLoading(false);
       } catch (err) {
         console.error(err);
@@ -45,27 +49,25 @@ export default function Catalog() {
 
   useEffect(() => {
     let result = [...products];
-
     if (searchTerm.trim()) {
       result = result.filter((p) =>
         p.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-
     if (selectedBrand) {
       result = result.filter((p) => p.brand === selectedBrand);
     }
-
     result = result.filter((p) => p.price <= maxPrice);
-
+    if (onlyInStock) {
+      result = result.filter((p) => Number(p.stock) > 0);
+    }
     if (sortOption === 'price-asc') {
       result.sort((a, b) => a.price - b.price);
     } else if (sortOption === 'price-desc') {
       result.sort((a, b) => b.price - a.price);
     }
-
     setFiltered(result);
-  }, [searchTerm, selectedBrand, maxPrice, sortOption, products]);
+  }, [searchTerm, selectedBrand, maxPrice, sortOption, onlyInStock, products]);
 
   const handleCardClick = (product) => {
     navigate(`/product/${product._id}`);
@@ -73,7 +75,7 @@ export default function Catalog() {
 
   if (loading) {
     return (
-      <div className="catalog-container">
+      <div className={`catalog-container ${theme}`}>
         <h2 className="catalog-title">{t.loading}</h2>
         <div className="product-grid">
           {[...Array(8)].map((_, i) => (
@@ -89,7 +91,7 @@ export default function Catalog() {
   }
 
   return (
-    <div className="catalog-container">
+    <div className={`catalog-container ${theme}`}>
       <div className="catalog-header">
         <div className="header-spacer"></div>
         <h1 className="catalog-title">{t.title}</h1>
@@ -126,25 +128,24 @@ export default function Catalog() {
             onChange={(e) => setMaxPrice(Number(e.target.value))}
           />
         </div>
-        <FormControl size="small" sx={{ minWidth: 150 }}>
-          <InputLabel sx={{ color: 'white' }}>{t.sort}</InputLabel>
-          <Select
-            value={sortOption}
-            label={t.sort}
-            onChange={(e) => setSortOption(e.target.value)}
-            sx={{
-              color: 'white',
-              '.MuiOutlinedInput-notchedOutline': { borderColor: 'white' },
-              '&.Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#38bdf8' },
-              '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#38bdf8' },
-              backgroundColor: '#0f172a'
-            }}
-          >
-            <MenuItem value="none">{t.sort}</MenuItem>
-            <MenuItem value="price-asc">{t.priceLowHigh}</MenuItem>
-            <MenuItem value="price-desc">{t.priceHighLow}</MenuItem>
-          </Select>
-        </FormControl>
+
+        <select
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value="none">{t.sort}</option>
+          <option value="price-asc">{t.priceLowHigh}</option>
+          <option value="price-desc">{t.priceHighLow}</option>
+        </select>
+
+        <div className="stock-switch">
+          <Switch
+            checked={onlyInStock}
+            onChange={(e) => setOnlyInStock(e.target.checked)}
+            color="primary"
+          />
+          <span>{t.inStockOnly}</span>
+        </div>
       </div>
 
       <div className="product-grid">
@@ -156,11 +157,32 @@ export default function Catalog() {
             onClick={() => handleCardClick(product)}
           >
             <div className={`image-wrapper ${product.stock === 0 ? 'disabled' : ''}`}>
+              <button
+                className="wishlist-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleWishlist(product);
+                  if (isInWishlist(product)) {
+                    toast.success(`Removed from Wishlist 💔`);
+                  } else {
+                    toast.success(`Added to Wishlist ❤️`);
+                  }
+                }}
+              >
+                {isInWishlist(product) ? <Favorite /> : <FavoriteBorder />}
+              </button>
               <img
                 src={product.image}
                 alt={product.name}
-                className="catalog-product-image"
+                className="catalog-product-image main-image"
               />
+              {product.hoverImage && (
+                <img
+                  src={product.hoverImage}
+                  alt={product.name}
+                  className="catalog-product-image hover-image"
+                />
+              )}
               <div className="overlay">
                 <h3>{product.name}</h3>
               </div>
@@ -171,6 +193,7 @@ export default function Catalog() {
           </div>
         ))}
       </div>
+
       <ChatButton />
     </div>
   );

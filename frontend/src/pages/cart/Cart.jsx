@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../context/languageContext';
 import './Cart.css';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Cart() {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
+  const { theme } = useTheme();
 
   const { language, languageData } = useLanguage();
   const t = languageData[language].cartPage;
@@ -76,7 +78,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="cart-page">
+    <div className={`cart-page ${theme}`}>
       <h1 className="cart-title">{t.yourCart}</h1>
       <div className="cart-controls">
         <button className="clear-cart-btn" onClick={clearCart}>

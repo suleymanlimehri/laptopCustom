@@ -3,14 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useLanguage } from '../../context/languageContext';
 import './Configure.css';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function ProductConfigure() {
   const { id } = useParams();
   const navigate = useNavigate();
-
+    const { theme } = useTheme();
   const { language, languageData } = useLanguage();
   const t = languageData[language].productConfigure;
-
   const [product, setProduct] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [finalPrice, setFinalPrice] = useState(0);
@@ -72,7 +72,7 @@ export default function ProductConfigure() {
   );
 
   return (
-    <div className="config-page">
+    <div className={`config-page ${theme}`}> 
       <div className="config-card">
         <div className="product-info">
           <h1 className="config-title">{product.name}</h1>

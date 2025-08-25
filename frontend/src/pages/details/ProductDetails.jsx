@@ -4,20 +4,21 @@ import axios from 'axios';
 import { FiShare2, FiHome } from 'react-icons/fi';
 import { Helmet } from 'react-helmet';
 import { useLanguage } from '../../context/languageContext';
+import { useTheme } from '../../context/ThemeContext';
 import './ProductDetails.css';
 
 export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { theme } = useTheme();
+  const { language, languageData } = useLanguage();
+  const t = languageData[language].productDetails;
 
   const [product, setProduct] = useState(null);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [recommended, setRecommended] = useState([]);
   const [copySuccess, setCopySuccess] = useState('');
   const [loading, setLoading] = useState(true);
-
-  const { language, languageData } = useLanguage();
-  const t = languageData[language].productDetails;
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -53,20 +54,20 @@ export default function ProductDetails() {
 
   if (loading) {
     return (
-      <div className="details-container">
+      <div className={`details-container ${theme}`}>
         <div className="details-skeleton"></div>
         <h2 className="details-loading">{t.loading}</h2>
       </div>
     );
   }
 
-  if (!product) return <h2 className="details-error">{t.notFound}</h2>;
+  if (!product) return <h2 className={`details-error ${theme}`}>{t.notFound}</h2>;
 
   const stockCount = Number(product.stock) || 0;
   const inStock = stockCount > 0;
 
   return (
-    <div className="details-container">
+    <div className={`details-container ${theme}`}>
       <Helmet>
         <title>Laptop Configurator Pro - {product.name}</title>
       </Helmet>

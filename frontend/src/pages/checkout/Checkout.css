@@ -1,5 +1,5 @@
 .checkout-page { 
-   margin-top: 50px;
+   margin-top: 80px;
   padding: 1rem;
   background: #0f172a;
   color: #f9fafb;
@@ -316,4 +316,154 @@
   .promo-code {
     flex-direction: column;
   }
+}
+
+
+/* LIGHT MODE OVERRIDES FOR CHECKOUT PAGE */
+
+.checkout-page.light {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.checkout-page.light h1 {
+  color: #1f2937;
+  text-shadow: none;
+}
+
+.checkout-page.light .checkout-card {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.checkout-page.light .checkout-card:hover {
+  box-shadow: 0 8px 20px rgba(37,99,235,0.2);
+}
+
+.checkout-page.light .checkout-image {
+  border: 1px solid #cbd5e1;
+}
+
+.checkout-page.light .checkout-info h3 {
+  color: #1f2937;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.checkout-page.light .checkout-info p {
+  color: #374151;
+}
+
+.checkout-page.light .checkout-options p {
+  color: #2563eb;
+}
+
+.checkout-page.light .checkout-options ul {
+  list-style-type: disc;
+}
+
+.checkout-page.light .checkout-summary {
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.checkout-page.light .checkout-summary h2 {
+  color: #2563eb;
+}
+
+.checkout-page.light .shipping-input,
+.checkout-page.light .promo-code input {
+  background-color: #ffffff;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.checkout-page.light .shipping-input:focus,
+.checkout-page.light .promo-code input:focus {
+  border-color: #2563eb;
+}
+
+.checkout-page.light .payment-methods label,
+.checkout-page.light .shipping-options label {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.checkout-page.light .payment-methods label:hover,
+.checkout-page.light .shipping-options label:hover {
+  background: #f3f4f6;
+  border-color: #2563eb;
+}
+
+.checkout-page.light .promo-code button {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.checkout-page.light .promo-code button:hover {
+  background-color: #1d4ed8;
+}
+
+.checkout-page.light .promo-message,
+.checkout-page.light .discount-info {
+  color: #16a34a;
+}
+
+.checkout-page.light .error-message {
+  color: #dc2626;
+}
+
+.checkout-page.light .place-order-button {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.checkout-page.light .place-order-button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 0 10px #2563eb;
+}
+
+/* Modal overrides */
+.checkout-page.light .modal-container {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.checkout-page.light .modal-box {
+  background: #ffffff;
+  color: #1f2937;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.checkout-page.light .modal-box h3 {
+  color: #2563eb;
+}
+
+.checkout-page.light .modal-box input {
+  background-color: #ffffff;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.checkout-page.light .modal-box input:focus {
+  border-color: #2563eb;
+}
+
+.checkout-page.light .confirm-btn {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.checkout-page.light .confirm-btn:hover {
+  background-color: #16a34a;
+}
+
+.checkout-page.light .cancel-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.checkout-page.light .cancel-btn:hover {
+  background-color: #dc2626;
 }

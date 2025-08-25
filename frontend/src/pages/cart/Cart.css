@@ -12,7 +12,6 @@
 }
 
 body {
-  background-color: var(--background);
   font-family: 'Savate', sans-serif;
   color: var(--text-color);
 }
@@ -247,4 +246,115 @@ body {
 .explore-btn:hover {
   background: var(--neon-pink);
   box-shadow: 0 0 20px var(--neon-pink);
+}
+/* LIGHT MODE OVERRIDES */
+
+.cart-page.light {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.cart-page.light .cart-title {
+  color: #1f2937;
+  text-shadow: none;
+}
+
+.cart-page.light .clear-cart-btn {
+  border-color: #2563eb;
+  color: #2563eb;
+  box-shadow: none;
+}
+
+.cart-page.light .clear-cart-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.cart-page.light .cart-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-page.light .cart-card::before {
+  display: none;
+}
+
+.cart-page.light .cart-card:hover {
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.2);
+}
+
+.cart-page.light .cart-image {
+  border-color: #cbd5e1;
+  box-shadow: none;
+}
+
+.cart-page.light .cart-name {
+  color: #1f2937;
+  text-shadow: none;
+}
+
+.cart-page.light .cart-options,
+.cart-page.light .cart-note {
+  background: #f3f4f6;
+  border-color: #cbd5e1;
+  color: #374151;
+  box-shadow: none;
+}
+
+.cart-page.light .quantity-btn {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.cart-page.light .quantity-btn:hover {
+  background: #1d4ed8;
+}
+
+.cart-page.light .remove-button {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.cart-page.light .remove-button:hover {
+  background: #dc2626;
+}
+
+.cart-page.light .cart-summary-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.cart-page.light .cart-summary {
+  color: #2563eb;
+  text-shadow: none;
+}
+
+.cart-page.light .checkout-button {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.cart-page.light .checkout-button:hover {
+  background: #1d4ed8;
+}
+
+.cart-page.light .empty-cart {
+  color: #1f2937;
+  text-shadow: none;
+}
+
+.cart-page.light .explore-btn {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.cart-page.light .explore-btn:hover {
+  background: #1d4ed8;
 }

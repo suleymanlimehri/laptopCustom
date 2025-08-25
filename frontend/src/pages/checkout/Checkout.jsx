@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from '../../axiosInstance';
 import { useLanguage } from '../../context/languageContext';
 import './Checkout.css';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Checkout() {
   const navigate = useNavigate();
   const { language, languageData } = useLanguage();
   const t = languageData[language].checkoutPage;
+   const { theme } = useTheme();
 
   const [cartItems, setCartItems] = useState([]);
   const [shippingAddress, setShippingAddress] = useState('');
@@ -106,7 +108,7 @@ export default function Checkout() {
   };
 
   return (
-    <div className="checkout-page">
+    <div className={`checkout-page ${theme}`}>
       <h1>{t.checkout}</h1>
 
       {cartItems.length === 0 ? (
@@ -205,10 +207,6 @@ export default function Checkout() {
             </div>
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-            {discount > 0 && (
-              <p className="discount-info">{t.discountInfo}: -${discount}</p>
-            )}
 
             <button
               onClick={handleCompletePayment}

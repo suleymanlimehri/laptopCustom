@@ -1,4 +1,5 @@
 .details-container {
+  margin-top: 50px;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -375,4 +376,118 @@
 
 .image-hover:hover {
   background-image: url('/images/second.jpg');
+}
+/* LIGHT MODE OVERRIDES */
+.details-container.light {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.details-container.light .breadcrumb {
+  color: #6b7280;
+}
+
+.details-container.light .breadcrumb a {
+  color: #2563eb;
+}
+
+.details-container.light .details-card {
+  background: #ffffff;
+  color: #1f2937;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.details-container.light .details-title {
+  color: #1e293b;
+  text-shadow: none;
+}
+
+.details-container.light .details-image {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.details-container.light .thumbnail {
+  border: 2px solid transparent;
+}
+
+.details-container.light .thumbnail.active,
+.details-container.light .thumbnail:hover {
+  border: 2px solid #2563eb;
+}
+
+.details-container.light .stock-badge.in-stock {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.details-container.light .stock-badge.out-of-stock {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.details-container.light .details-description {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.details-container.light .base-price {
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.details-container.light .specs-table {
+  color: #374151;
+}
+
+.details-container.light .specs-table td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.details-container.light .specs-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.details-container.light .button {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.details-container.light .button:hover {
+  background: #1e40af;
+}
+
+.details-container.light .share-btn {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+}
+
+.details-container.light .share-btn:hover {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.details-container.light .recommended-section h2 {
+  color: #1e293b;
+}
+
+.details-container.light .recommended-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.details-container.light .recommended-card h4 {
+  color: #1f2937;
+}
+
+.details-container.light .recommended-card p {
+  color: #6b7280;
+}
+
+.details-container.light .details-error {
+  color: #2563eb;
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../../context/languageContext';
 import './ContactSupport.css';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Contact() {
   const { language, languageData } = useLanguage();
@@ -15,6 +16,7 @@ export default function Contact() {
   });
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
+  const { theme } = useTheme();
 
   const handleChange = (e) => {
     setFormData({
@@ -46,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-page">
+    <div className={`contact-page ${theme}`}>
       <h1 className="contact-title">{t.title}</h1>
       <p className="contact-subtitle">{t.subtitle}</p>
 

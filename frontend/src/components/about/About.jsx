@@ -1,4 +1,5 @@
 import { useLanguage } from '../../context/languageContext';
+import { useTheme } from '../../context/ThemeContext';
 import './About.css';
 
 export default function About() {
@@ -17,9 +18,10 @@ export default function About() {
     ctaTitle: "Begin Your Journey",
     ctaButton: "Configure Now"
   };
+   const { theme } = useTheme();
 
   return (
-    <div className="about-container">
+    <div className={`about-container ${theme}`}>
       <section className="about-hero">
         <div className="hero-glass">
           <h1 className="about-title">{t.heroTitle}</h1>

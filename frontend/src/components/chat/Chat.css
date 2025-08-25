@@ -131,3 +131,75 @@
 .chat-input button:hover {
   background: #2563eb;
 }
+/* LIGHT MODE FOR CHAT COMPONENT */
+
+.chat-overlay.light {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.chat-window.light {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.chat-header.light {
+  background: #e2e8f0;
+  color: #2563eb;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.chat-header.light .close-btn {
+  color: #2563eb;
+}
+
+.chat-messages.light {
+  background: #f9fafb;
+}
+
+.chat-bubble.light.user {
+  background: #2563eb;
+  color: white;
+}
+
+.chat-bubble.light.bot {
+  background: #e2e8f0;
+  color: #1f2937;
+}
+
+.loading-dot.light {
+  color: #2563eb;
+}
+
+.chat-input.light {
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.chat-input.light input {
+  background: #f9fafb;
+  color: #1f2937;
+  border-right: 1px solid #e5e7eb;
+}
+
+.chat-input.light input::placeholder {
+  color: #94a3b8;
+}
+
+.chat-input.light button {
+  background: #2563eb;
+  color: white;
+}
+
+.chat-input.light button:hover {
+  background: #1e40af;
+}
+
+.chat-launcher.light {
+  background: #2563eb;
+  color: white;
+}
+
+.chat-launcher.light:hover {
+  background: #1e40af;
+}

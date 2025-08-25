@@ -2,14 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../../context/languageContext';
 import './Cancel.css';
+import { useTheme } from '../../context/ThemeContext';
 
 export default function Cancel() {
   const navigate = useNavigate();
   const [quote, setQuote] = useState('');
   const [shake, setShake] = useState(false);
-
   const { language, languageData } = useLanguage();
   const t = languageData[language].cancelPage;
+   const { theme } = useTheme();
 
   useEffect(() => {
     const random = t.quotes[Math.floor(Math.random() * t.quotes.length)];
@@ -29,7 +30,7 @@ export default function Cancel() {
   };
 
   return (
-    <div className="cancel-page">
+    <div className={`cancel-page ${theme}`}>
       <div className={`cancel-card ${shake ? 'vibrate' : ''}`}>
         <h1 className="cancel-title">{t.title}</h1>
         <p className="cancel-message">{t.message}</p>

@@ -9,14 +9,14 @@
 }
 
 .about-hero {
-      margin-top: 70px;
+  margin-top: 70px;
   background: linear-gradient(135deg, #1e293b 30%, #0f172a 100%);
   position: relative;
   overflow: hidden;
   border-radius: 16px;
   padding: 4rem 1rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .about-hero::before {
@@ -26,25 +26,30 @@
   left: -30%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
   animation: rotateGlow 20s linear infinite;
   z-index: 0;
 }
 
 @keyframes rotateGlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-glass {
   position: relative;
   z-index: 1;
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(96,165,250,0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
   padding: 2rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 .about-title {
@@ -66,11 +71,11 @@
 .about-promise {
   margin: 2.5rem 0;
   padding: 2rem 1.5rem;
-  background: rgba(17,24,39,0.85);
+  background: rgba(17, 24, 39, 0.85);
   border-radius: 12px;
-  border: 1px solid rgba(96,165,250,0.2);
+  border: 1px solid rgba(96, 165, 250, 0.2);
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .about-promise h2 {
@@ -109,13 +114,13 @@
 }
 
 .step-card {
-  background: rgba(17,24,39,0.75);
+  background: rgba(17, 24, 39, 0.75);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(96,165,250,0.2);
+  border: 1px solid rgba(96, 165, 250, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
   width: 280px;
-  box-shadow: 0 0 20px rgba(59,130,246,0.3);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   transition: transform 0.4s, box-shadow 0.4s;
 }
 
@@ -140,7 +145,7 @@
   background: linear-gradient(135deg, #1e293b 30%, #0f172a 100%);
   padding: 3rem 1rem;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .about-cta h2 {
@@ -158,7 +163,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(59,130,246,0.5);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5);
   transition: background 0.3s, box-shadow 0.3s;
 }
 
@@ -166,12 +171,111 @@
   background: linear-gradient(90deg, #2563eb, #3b82f6);
   box-shadow: 0 0 18px #60a5fa;
 }
+/* LIGHT MODE FOR ABOUT PAGE */
+.about-container.light {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.about-container.light .about-hero {
+  background: linear-gradient(135deg, #e0f2fe 30%, #bfdbfe 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-container.light .hero-glass {
+  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.15);
+}
+
+.about-container.light .about-title {
+  color: #2563eb;
+  text-shadow: none;
+}
+
+.about-container.light .about-subtitle {
+  color: #475569;
+}
+
+.about-container.light .about-promise {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-container.light .about-promise h2 {
+  color: #2563eb;
+  border-bottom: 1px solid #2563eb;
+}
+
+.about-container.light .about-promise p {
+  color: #475569;
+}
+
+.about-container.light .about-steps {
+  background: #f1f5f9;
+}
+
+.about-container.light .about-steps h2 {
+  color: #2563eb;
+}
+
+.about-container.light .step-card {
+  background: #ffffff;
+  backdrop-filter: none;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+.about-container.light .step-card:hover {
+  box-shadow: 0 0 20px #60a5fa;
+}
+
+.about-container.light .step-card h3 {
+  color: #2563eb;
+}
+
+.about-container.light .step-card p {
+  color: #475569;
+}
+
+.about-container.light .about-cta {
+  background: linear-gradient(135deg, #e0f2fe 30%, #bfdbfe 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-container.light .about-cta h2 {
+  color: #2563eb;
+}
+
+.about-container.light .about-cta button {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+.about-container.light .about-cta button:hover {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  box-shadow: 0 0 12px #60a5fa;
+}
 
 @media (max-width: 700px) {
-  .about-title { font-size: 2rem; }
-  .about-subtitle { font-size: 1rem; }
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
   .about-promise h2,
   .about-steps h2,
-  .about-cta h2 { font-size: 1.5rem; }
-  .step-card { width: 90%; }
+  .about-cta h2 {
+    font-size: 1.5rem;
+  }
+
+  .step-card {
+    width: 90%;
+  }
 }
